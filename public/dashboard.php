@@ -15,7 +15,7 @@ $username = $_SESSION['username'];
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Bem vindo <?php echo $username; ?></h1>
+    <h1>Bem vindo <?php echo htmlspecialchars($username); ?></h1>
     <p>Esta é a página do seu dashboard.</p>
     <p><a href="logout.php">Logout</a></p>
 </body>
