@@ -3,9 +3,8 @@ require_once '../config/db.php';
 
 function createUser($username, $email, $password) {
     global $pdo;
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
-    return $stmt->execute(['username' => $username, 'password' => $hashedPassword, 'email' => $email]);
+    return $stmt->execute(['username' => $username, 'password' => $password, 'email' => $email]);
 }
 
 function getUserByUsername($username) {
@@ -25,4 +24,4 @@ function getUserByEmail($email) {
 function verifyPassword($password, $hashedPassword) {
     return password_verify($password, $hashedPassword);
 }
-
+?>

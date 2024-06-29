@@ -13,9 +13,10 @@ $username = $_SESSION['username'];
 <html>
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 <body>
-    <h1>Bem vindo <?php echo $username; ?></h1>
+    <h1>Bem vindo <?php echo htmlspecialchars($username); ?></h1>
     <p>Esta é a página do seu dashboard.</p>
     <p><a href="logout.php">Logout</a></p>
 </body>

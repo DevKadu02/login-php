@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once '../includes/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -18,15 +17,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Usuário ou senha incorretos.";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="styles/login.css">
 </head>
 <body>
+    <div class="square">
     <h1>Login</h1>
     <form method="post" action="login.php">
         <label for="username">Usuário:</label>
@@ -36,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="password" id="password" required>
 
         <button type="submit">Logar</button>
+        <p><a href="register.php">Caso ainda não tenha uma conta</a></p>
+        </div>
     </form>
 </body>
 </html>
