@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = htmlspecialchars(trim($_POST['password']));
     $email = htmlspecialchars(trim($_POST['email']));
 
-    // Valida o email
+    
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Erro: Email inválido.";
         exit;
@@ -20,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else if ($existingEmail) {
         echo "Erro: Este email já está em uso.";
     } else {
-        // Hash a senha antes de armazenar no banco de dados
+        
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         if (createUser($username, $email, $hashedPassword)) {
-            // Certifique-se de que não há nenhuma saída antes desta linha
+           
             header("Location: login.php");
             exit;
         } else {
@@ -38,8 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 <head>
     <title>Registro</title>
+    <link rel="stylesheet" href="styles/register.css">
 </head>
 <body>
+    <div class="square">
     <h1>Registro</h1>
     <form method="post" action="">
         <label for="username">Usuário:</label>
@@ -52,6 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="password" id="password" required>
 
         <button type="submit">Registrar</button>
+        <p><a href="login.php">Caso já tenha uma conta</a></p>
+        </div>
     </form>
 </body>
 </html>

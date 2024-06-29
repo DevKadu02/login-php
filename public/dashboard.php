@@ -13,6 +13,7 @@ $username = $_SESSION['username'];
 <html>
 <head>
     <title>Dashboard</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 <body>
     <h1>Bem vindo <?php echo htmlspecialchars($username); ?></h1>
